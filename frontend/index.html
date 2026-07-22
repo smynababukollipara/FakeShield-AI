@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FakeShield AI — Fake News &amp; Scam Detector</title>
+  <meta name="description" content="AI-powered detection for fake news articles and scam messages. Paste text, get an instant verdict with confidence scores." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- ── Floating background ─────────────────────────────────── -->
+  <div class="bg-decor" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ── Navbar ──────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="#top" class="nav-logo">
+        <span class="nav-logo-icon">🛡️</span>
+        <span class="nav-logo-text">FakeShield <span class="accent-text">AI</span></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#stats">Stats</a></li>
+        <li><a href="#check">Check Text</a></li>
+        <li><a href="#history">History</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" type="button" title="Toggle theme" aria-label="Toggle light and dark theme">
+          <span id="themeToggleIcon">🌙</span>
+        </button>
+        <button class="btn-nav-cta" id="tryFreeBtn">
+    Try it free
+</button>
+        <button id="navMobileToggle" class="icon-btn nav-mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">✨ Powered by machine learning</span>
+      <h1 class="hero-title">
+        Spot fake news &amp; scams
+        <span class="gradient-text">before they spot you</span>
+      </h1>
+      <p class="hero-subtitle">
+        Paste any news article, headline, SMS or WhatsApp message and get an instant,
+        AI-generated verdict with a confidence score — trained on thousands of real
+        and fake samples.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#check" class="btn-primary-lg">🔍 Check Something Now</a>
+        <a href="#stats" class="btn-ghost-lg">📊 See Live Stats</a>
+      </div>
+      <div class="hero-trust-row">
+        <span>⚡ Instant results</span>
+        <span>🔒 Nothing stored on our servers</span>
+        <span>🎯 95.74% model accuracy</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+
+    <!-- ================= FEATURES ================= -->
+
+<section class="features-section">
+
+    <div class="section-heading">
+
+        <span class="section-tag">
+            WHY FAKESHIELD AI
+        </span>
+
+        <h2>
+            Powerful AI Protection
+        </h2>
+
+        <p>
+            Built using Machine Learning to detect fake news,
+            phishing attempts and scam messages with confidence.
+        </p>
+
+    </div>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🧠
+            </div>
+
+            <h3>AI Detection</h3>
+
+            <p>
+                Uses Machine Learning to classify fake and real content
+                with high accuracy.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ⚡
+            </div>
+
+            <h3>Instant Results</h3>
+
+            <p>
+                Receive predictions in seconds with confidence scores
+                and AI explanations.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔒
+            </div>
+
+            <h3>Privacy First</h3>
+
+            <p>
+                Your submitted content stays in your browser session.
+                We don't permanently store your text.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ── Usage stats bar ───────────────────────────────────── -->
+    <section class="section-block" id="stats">
+      <div class="section-heading">
+        <h2>Live Detection Stats</h2>
+        <p>Real numbers from every check run through FakeShield AI, updated live.</p>
+      </div>
+
+      <div class="stats-bar" id="statsBar">
+        <div class="stat-card">
+          <span class="stat-icon">📈</span>
+          <span class="stat-value" id="statTotal">0</span>
+          <span class="stat-label">Total checks</span>
+        </div>
+        <div class="stat-card stat-card-fake">
+          <span class="stat-icon">🚩</span>
+          <span class="stat-value stat-fake" id="statFakePct">0%</span>
+          <span class="stat-label">Flagged fake / scam</span>
+        </div>
+        <div class="stat-card stat-card-real">
+          <span class="stat-icon">✅</span>
+          <span class="stat-value stat-real" id="statRealPct">0%</span>
+          <span class="stat-label">Flagged real / legit</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Prediction section ─────────────────────────────────── -->
+    <section class="section-block" id="check">
+      <div class="section-heading">
+        <h2>Run a Check</h2>
+        <p>Choose what you're checking, paste your text, and let the model do the rest.</p>
+      </div>
+
+      <!-- ── Mode toggle ─────────────────────────────────────── -->
+      <div class="mode-toggle">
+        <span class="mode-label">What are you checking?</span>
+        <div class="mode-buttons">
+          <button class="mode-btn active" data-mode="news" type="button">📰 News Article</button>
+          <button class="mode-btn" data-mode="sms" type="button">💬 SMS / WhatsApp</button>
+        </div>
+      </div>
+
+      <!-- ── Input card ──────────────────────────────────────── -->
+      <div class="card glass-card">
+        <label id="inputLabel" class="input-label">
+          Paste your news article or headline below:
+        </label>
+        <label id="inputLabel" class="input-label">
+    Paste your news article or headline below:
+</label>
+
+<div class="upload-section">
+
+    <label for="txtUpload" class="upload-btn">
+        📄 Upload TXT File
+    </label>
+
+    <input
+        type="file"
+        id="txtUpload"
+        accept=".txt"
+        hidden
+    >
+
+    <p id="fileName">
+        No file selected
+    </p>
+
+</div>
+
+<textarea
+    id="textInput"
+    placeholder="e.g. 'BREAKING: Scientists reveal that drinking lemon water cures all diseases — government doesn't want you to know this!'"
+    rows="7"
+></textarea>
+
+        <div class="char-count" id="charCount">0 characters</div>
+
+        <div class="btn-row">
+          <button id="checkBtn" class="btn-primary">
+            <span id="btnText">🔍 Check Now</span>
+            <span id="btnSpinner" class="spinner hidden"></span>
+          </button>
+          <button id="clearBtn" class="btn-secondary">✕ Clear</button>
+        </div>
+
+        <div class="examples">
+          <span class="examples-label">Try an example:</span>
+          <span id="exampleBtns"></span>
+        </div>
+      </div>
+
+      <!-- ── Result card ─────────────────────────────────────── -->
+      <div class="result-card glass-card hidden" id="resultCard">
+
+        <div class="verdict" id="verdictBanner">
+          <span class="verdict-icon" id="verdictIcon"></span>
+          <span class="verdict-label" id="verdictLabel"></span>
+        </div>
+
+        <div class="conf-section">
+          <div class="conf-labels">
+            <span>🟢 Real / Legit probability</span>
+            <span>🔴 Fake / Scam probability</span>
+          </div>
+          <div class="conf-bar-track">
+            <div class="conf-bar-real" id="realBar"></div>
+            <div class="conf-bar-fake" id="fakeBar"></div>
+          </div>
+          <div class="conf-numbers">
+            <span id="realPct"></span>
+            <span id="fakePct"></span>
+          </div>
+        </div>
+
+        <p class="explanation" id="explanation"></p>
+        <p class="mode-badge" id="modeBadge"></p>
+      </div>
+
+      <!-- ── Error card ──────────────────────────────────────── -->
+      <div class="error-card glass-card hidden" id="errorCard">
+        <span class="error-icon">⚠️</span><span id="errorMsg"></span>
+      </div>
+    </section>
+
+    <!-- ── History panel ──────────────────────────────────────── -->
+    <section class="section-block" id="history">
+      <div class="history-panel glass-card" id="historyPanel">
+        <div class="history-header">
+          <h2 class="history-title">
+            📋 Recent Checks
+            <span class="history-count hidden" id="historyCount">0</span>
+          </h2>
+          <button class="history-clear-btn" id="clearHistory" title="Clear all history" type="button">
+            🗑 Clear all
+          </button>
+        </div>
+        <p class="history-empty" id="historyEmpty">
+          No checks yet — your last 10 results will appear here automatically.
+        </p>
+        <div class="history-list" id="historyList"></div>
+      </div>
+    </section>
+<!-- ================= AI Loading Overlay ================= -->
+
+<div id="loadingOverlay" class="loading-overlay hidden">
+
+    <div class="loading-card">
+
+        <div class="loading-logo">
+            🛡
+        </div>
+
+        <h2>FakeShield AI</h2>
+
+        <p id="loadingMessage">
+            Initializing AI Engine...
+        </p>
+
+        <div class="loading-progress">
+
+            <div id="loadingBar" class="loading-progress-bar"></div>
+
+        </div>
+
+        <div id="loadingPercent">
+            0%
+        </div>
+
+    </div>
+
+</div>
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="nav-logo-icon">🛡️</span>
+          <span class="nav-logo-text">FakeShield <span class="accent-text">AI</span></span>
+        </div>
+        <p class="footer-tagline">
+          AI-powered detection for news articles and scam messages —
+          helping you think twice before you share.
+        </p>
+        <div class="footer-social">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub" aria-label="GitHub">🐙</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="LinkedIn">💼</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#stats">Live Stats</a></li>
+          <li><a href="#check">Check Text</a></li>
+          <li><a href="#history">History</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Tech Stack</h3>
+        <div class="tech-pills">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Flask</span>
+          <span class="tech-pill">scikit-learn</span>
+          <span class="tech-pill">PassiveAggressiveClassifier</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Built with Python · Flask · scikit-learn · PassiveAggressiveClassifier</p>
+      <p>Trained on 6,335 news articles · Accuracy: 95.74% · 24 automated tests passing</p>
+    </div>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────────────────
+# .gitignore
+# Git is a tool that saves your code history and lets you upload
+# to GitHub. This file tells Git: "ignore these files — don't
+# save or upload them." We ignore things that are:
+# - Too large (datasets, trained model files)
+# - Private (API keys, passwords)
+# - Auto-generated (Python cache files)
+# ─────────────────────────────────────────────────────────────
+
+# Python cache (auto-generated, not needed in Git)
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Virtual environment folder (installed packages — too large for Git)
+venv/
+env/
+.venv/
+
+# Trained model files (large binary files — regenerate with train.py)
+#model/saved/*.pkl
+#model/saved/*.pt
+#model/saved/*.bin
+
+# Large dataset files (download separately from Kaggle)
+data/raw/
+data/processed/
+
+# Jupyter notebook checkpoints (auto-saved, not needed)
+.ipynb_checkpoints/
+
+# Secret keys and environment variables (NEVER upload these!)
+.env
+
+# macOS system file
+.DS_Store

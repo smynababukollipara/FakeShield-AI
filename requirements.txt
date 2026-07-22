@@ -1,0 +1,35 @@
+# ─────────────────────────────────────────────────────────────
+# requirements.txt  —  Install with:  pip install -r requirements.txt
+#
+# We install packages in stages so you aren't blocked by large downloads.
+# Stage 1 (Days 1–10): classic ML tools — small, fast to install
+# Stage 2 (Day 11):    HuggingFace + PyTorch — added when needed
+# ─────────────────────────────────────────────────────────────
+
+# --- Web server ---
+flask==3.0.3              # Builds our backend web server
+flask-cors==4.0.1         # Lets our frontend talk to our backend safely
+
+# --- Data & classic machine learning ---
+scikit-learn==1.5.1       # TF-IDF vectorizer + Naive Bayes classifier
+numpy==1.26.4             # Fast number crunching (used by scikit-learn)
+pandas==2.2.2             # Reads CSV files, filters and organises data
+
+# --- Model saving & loading ---
+joblib==1.4.2             # Saves our trained model to disk as a .pkl file
+
+# --- Notebook visualisations ---
+matplotlib==3.9.0         # Plots bar charts and confusion matrices
+seaborn==0.13.2           # Prettier statistical charts
+wordcloud==1.9.3          # Generates word cloud images
+
+# --- Testing ---
+pytest==8.2.2             # Runs our automated tests
+
+# --- Environment variables (for secret keys) ---
+python-dotenv==1.0.1      # Reads settings from a .env file
+
+# ─────────────────────────────────────────────────────────────
+# NOTE: torch + transformers (HuggingFace) are intentionally left out.
+# We will add them on Day 11 when we upgrade to a BERT model.
+# ─────────────────────────────────────────────────────────────
