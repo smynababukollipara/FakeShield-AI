@@ -11,9 +11,21 @@ import os
 import numpy as np
 
 # ── File paths (same as config.py) ────────────────────────────
-MODEL_FILE      = os.path.join('model', 'saved', 'classifier.pkl')
-VECTORIZER_FILE = os.path.join('model', 'saved', 'vectorizer.pkl')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+MODEL_FILE = os.path.join(
+    BASE_DIR,
+    "model",
+    "saved",
+    "classifier.pkl"
+)
+
+VECTORIZER_FILE = os.path.join(
+    BASE_DIR,
+    "model",
+    "saved",
+    "vectorizer.pkl"
+)
 # ── Load model once at import time ────────────────────────────
 # Loading from disk is slow (~0.5s). We do it ONCE when the server
 # starts, not on every request. This keeps responses fast.
