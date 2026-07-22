@@ -9,6 +9,8 @@
 # --- Web server ---
 flask==3.0.3              # Builds our backend web server
 flask-cors==4.0.1         # Lets our frontend talk to our backend safely
+gunicorn==23.0.0
+
 
 # --- Data & classic machine learning ---
 scikit-learn==1.5.1       # TF-IDF vectorizer + Naive Bayes classifier
