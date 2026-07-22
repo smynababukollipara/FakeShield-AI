@@ -50,11 +50,37 @@ FakeShield AI is a machine learning-powered web application that analyzes **news
 ---
 ---
 
-# Screenshots
+#  Screenshots
 
 ##  Home Page
 
-![FakeShield AI Home Page](docs/images/home.png)
+![Home Page](docs/images/home.png)
+
+---
+
+##  Prediction Result
+
+![Prediction Result](docs/images/prediction.png)
+
+---
+
+##  TXT Upload
+
+![TXT Upload](docs/images/upload.png)
+
+---
+
+## Detection History
+
+![Detection History](docs/images/history.png)
+
+---
+
+##  Live Statistics
+
+![Statistics Dashboard](docs/images/stats.png)
+
+
 
 ---
 
@@ -281,7 +307,7 @@ The test suite validates:
 
 # 👨‍💻 Author
 
-**K. Sanjay Babu**
+**K.Smyna Babu**
 
 B.Tech – Computer Science & Engineering (AI & ML)
 
