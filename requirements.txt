@@ -14,8 +14,8 @@ gunicorn==23.0.0
 
 # --- Data & classic machine learning ---
 scikit-learn==1.5.1       # TF-IDF vectorizer + Naive Bayes classifier
-numpy==1.26.4             # Fast number crunching (used by scikit-learn)
-pandas==2.2.2             # Reads CSV files, filters and organises data
+numpy==2.3.2           # Fast number crunching (used by scikit-learn)
+pandas==2.3.1            # Reads CSV files, filters and organises data
 
 # --- Model saving & loading ---
 joblib==1.4.2             # Saves our trained model to disk as a .pkl file
